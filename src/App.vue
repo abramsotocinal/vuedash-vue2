@@ -1,28 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app ref="appMain">
+    <app-bar />
+    <chart-options />
+    <v-main>
+      <router-view :darkMode="darkMode"/>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import AppBar from './components/AppBar.vue';
+import { computed as gdComputed, methods as gdMethods} from '@/components/GetData.vue'
+import ChartOptions from '@/components/charts/ChartOptions.vue'
 export default {
-  name: 'App',
+  name: 'AppMain',
   components: {
-    HelloWorld
-  }
-}
+    ChartOptions,
+    AppBar
+  },
+  created () {
+    this.getData()
+  },
+  watch: {
+    darkMode () {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+    }
+  },
+  computed: gdComputed,
+  methods: gdMethods
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

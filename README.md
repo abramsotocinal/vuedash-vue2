@@ -1,24 +1,7 @@
 # vuedash-vue2
 
-## Project setup
-```
-npm install
-```
+I was bored, so I played around with making a chart to monitor my (tanking at the moment) ETH investment
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+currently using only [alphavantage API](https://www.alphavantage.co/) in conjunction with `vue-google-charts` (a google charts wrapper)
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+will extend functionality in the future to accommodate other api's
